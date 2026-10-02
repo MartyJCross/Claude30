@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1010" width="1000" height="1010" font-family="system-ui, -apple-system, Segoe UI, Roboto, sans-serif">
+<defs>
+  <marker id="arr" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <path d="M0,0 L10,5 L0,10 z" fill="#4b5563"/>
+  </marker>
+  <pattern id="hatch" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+    <line x1="0" y1="0" x2="0" y2="8" stroke="#475569" stroke-width="1.2"/>
+  </pattern>
+  <pattern id="cradle" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)">
+    <rect width="7" height="7" fill="#fde68a"/>
+    <line x1="0" y1="0" x2="0" y2="7" stroke="#b45309" stroke-width="1"/>
+  </pattern>
+</defs>
+<rect width="1000" height="1010" fill="#ffffff"/>
+<text x="30" y="40" font-size="22" font-weight="700" fill="#111827">MX motion rig — front elevation</text>
+<text x="30" y="64" font-size="14" fill="#4b5563">Upright (solid) and full 60° lean (ghost). At 60° the inside peg reaches the virtual ground — same as dragging a peg for real.</text>
+
+<rect x="20" y="760" width="960" height="14" fill="url(#hatch)"/>
+<line x1="20" y1="760" x2="980" y2="760" stroke="#475569" stroke-width="2"/>
+<text x="24.0" y="790.0" font-size="12" text-anchor="start" fill="#4b5563" font-weight="normal">floor / concrete slab</text>
+<line x1="20" y1="640" x2="980" y2="640" stroke="#92400e" stroke-width="1.5" stroke-dasharray="10 6"/>
+<text x="24.0" y="632.0" font-size="12" text-anchor="start" fill="#92400e" font-weight="normal">virtual ground (where the tyres would touch)</text>
+<line x1="100.0" y1="760.0" x2="100.0" y2="120" stroke="#dc2626" stroke-width="1.5" stroke-dasharray="3 5"/>
+<line x1="900.0" y1="760.0" x2="900.0" y2="120" stroke="#dc2626" stroke-width="1.5" stroke-dasharray="3 5"/>
+<text x="894.0" y="136.0" font-size="12" text-anchor="end" fill="#dc2626" font-weight="normal">keep-out 2.0 m</text>
+<text x="106.0" y="136.0" font-size="12" text-anchor="start" fill="#dc2626" font-weight="normal">keep-out 2.0 m</text>
+<line x1="20.0" y1="160.0" x2="980.0" y2="160.0" stroke="#475569" stroke-width="2" stroke-dasharray="12 4"/>
+<text x="500.0" y="152.0" font-size="12" text-anchor="middle" fill="#475569" font-weight="normal">minimum ceiling 3.0 m</text>
+<polygon points="260.0,760.0 740.0,760.0 740.0,740.0 260.0,740.0" stroke="#475569" fill="url(#hatch)" stroke-width="2" stroke-linejoin="round" />
+<polygon points="416.0,740.0 584.0,740.0 584.0,724.0 416.0,724.0" stroke="#475569" fill="#e2e8f0" stroke-width="2" stroke-linejoin="round" />
+<polygon points="490.0,752.0 510.0,752.0 510.0,734.0 490.0,734.0" stroke="#475569" fill="#fff" stroke-width="1.5" stroke-linejoin="round" />
+<polygon points="376.0,724.0 416.0,724.0 416.0,720.0 376.0,720.0" stroke="#475569" fill="#e2e8f0" stroke-width="2" stroke-linejoin="round" />
+<polygon points="584.0,724.0 624.0,724.0 624.0,720.0 584.0,720.0" stroke="#475569" fill="#e2e8f0" stroke-width="2" stroke-linejoin="round" />
+<polygon points="484.0,720.0 516.0,720.0 516.0,640.0 484.0,640.0" stroke="#475569" fill="#e2e8f0" stroke-width="1.5" stroke-linejoin="round" opacity="0.7"/>
+<circle cx="464.0" cy="702.4" r="12.0" stroke="#1d4ed8" fill="#fff" stroke-width="2" />
+<circle cx="536.0" cy="702.4" r="12.0" stroke="#1d4ed8" fill="#fff" stroke-width="2" />
+<circle cx="500.0" cy="640.0" r="11.0" stroke="#1d4ed8" fill="#dbeafe" stroke-width="2" />
+<g transform="rotate(60 500 640)" opacity="0.32"><polygon points="500.0,640.0 440.0,640.0 440.5,647.8 442.0,655.5 444.6,663.0 448.0,670.0 452.4,676.5 457.6,682.4 463.5,687.6 470.0,692.0 477.0,695.4 484.5,698.0 492.2,699.5 500.0,700.0 507.8,699.5 515.5,698.0 523.0,695.4 530.0,692.0 536.5,687.6 542.4,682.4 547.6,676.5 552.0,670.0 555.4,663.0 558.0,655.5 559.5,647.8 560.0,640.0" stroke="#1d4ed8" fill="#dbeafe" stroke-width="2" stroke-linejoin="round" /><polygon points="440.0,647.0 560.0,647.0 560.0,633.0 440.0,633.0" stroke="#1d4ed8" fill="#dbeafe" stroke-width="2" stroke-linejoin="round" /><polygon points="468.0,716.0 532.0,716.0 532.0,694.0 468.0,694.0" stroke="#1d4ed8" fill="#dbeafe" stroke-width="1.5" stroke-linejoin="round" /><polygon points="486.0,640.0 514.0,640.0 514.0,574.0 486.0,574.0" stroke="#b45309" fill="#fde68a" stroke-width="2.5" stroke-linejoin="round" /><polygon points="474.0,574.0 526.0,574.0 526.0,518.0 474.0,518.0" stroke="#b45309" fill="url(#cradle)" stroke-width="2" stroke-linejoin="round" /><polygon points="466.0,566.0 434.0,566.0 434.0,561.0 466.0,561.0" stroke="#111827" fill="#374151" stroke-width="1.5" stroke-linejoin="round" /><polygon points="534.0,566.0 566.0,566.0 566.0,561.0 534.0,561.0" stroke="#111827" fill="#374151" stroke-width="1.5" stroke-linejoin="round" /><polygon points="476.0,440.0 524.0,440.0 550.0,468.0 548.0,508.0 526.0,520.0 474.0,520.0 452.0,508.0 450.0,468.0" stroke="#ea580c" fill="#ffedd5" stroke-width="1.5" stroke-linejoin="round" /><polygon points="520.0,512.0 540.0,512.0 540.0,480.0 520.0,480.0" stroke="#7c3aed" fill="#ede9fe" stroke-width="2" stroke-linejoin="round" /><polygon points="483.0,480.0 473.0,480.0 473.0,444.0 483.0,444.0" stroke="#111827" fill="#9ca3af" stroke-width="1.5" stroke-linejoin="round" /><polygon points="517.0,480.0 527.0,480.0 527.0,444.0 517.0,444.0" stroke="#111827" fill="#9ca3af" stroke-width="1.5" stroke-linejoin="round" /><polygon points="468.0,446.0 532.0,446.0 532.0,440.0 468.0,440.0" stroke="#111827" fill="#374151" stroke-width="1.5" stroke-linejoin="round" /><polygon points="468.0,430.0 532.0,430.0 532.0,425.0 468.0,425.0" stroke="#111827" fill="#374151" stroke-width="1.5" stroke-linejoin="round" /><polyline points="420.0,414.0 450.0,418.0 500.0,420.0 550.0,418.0 580.0,414.0" stroke="#111827" fill="none" stroke-width="4" stroke-linejoin="round" stroke-linecap="round" /><circle cx="420.0" cy="414.0" r="4.4" stroke="#111827" fill="#fff" stroke-width="2" /><circle cx="580.0" cy="414.0" r="4.4" stroke="#111827" fill="#fff" stroke-width="2" /><polyline points="450.0,560.0 452.0,492.0 470.0,424.0" stroke="#64748b" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="7 5" opacity="0.85"/><polyline points="460.0,336.0 412.0,360.0 420.0,410.0" stroke="#64748b" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="7 5" opacity="0.85"/><polyline points="550.0,560.0 548.0,492.0 530.0,424.0" stroke="#64748b" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="7 5" opacity="0.85"/><polyline points="540.0,336.0 588.0,360.0 580.0,410.0" stroke="#64748b" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="7 5" opacity="0.85"/><polygon points="470.0,424.0 530.0,424.0 542.0,334.0 458.0,334.0" stroke="#64748b" fill="none" stroke-width="3" stroke-linejoin="round" stroke-dasharray="7 5" opacity="0.85"/><circle cx="500.0" cy="284.0" r="26.0" stroke="#64748b" fill="none" stroke-width="3" stroke-dasharray="7 5" opacity="0.85"/><polygon points="480.0,292.0 520.0,292.0 520.0,276.0 480.0,276.0" stroke="#64748b" fill="#cbd5e1" stroke-width="2" stroke-linejoin="round" /></g>
+<polygon points="500.0,640.0 440.0,640.0 440.5,647.8 442.0,655.5 444.6,663.0 448.0,670.0 452.4,676.5 457.6,682.4 463.5,687.6 470.0,692.0 477.0,695.4 484.5,698.0 492.2,699.5 500.0,700.0 507.8,699.5 515.5,698.0 523.0,695.4 530.0,692.0 536.5,687.6 542.4,682.4 547.6,676.5 552.0,670.0 555.4,663.0 558.0,655.5 559.5,647.8 560.0,640.0" stroke="#1d4ed8" fill="#dbeafe" stroke-width="2" stroke-linejoin="round" />
+<polygon points="440.0,647.0 560.0,647.0 560.0,633.0 440.0,633.0" stroke="#1d4ed8" fill="#dbeafe" stroke-width="2" stroke-linejoin="round" />
+<polygon points="468.0,716.0 532.0,716.0 532.0,694.0 468.0,694.0" stroke="#1d4ed8" fill="#dbeafe" stroke-width="1.5" stroke-linejoin="round" />
+<polygon points="486.0,640.0 514.0,640.0 514.0,574.0 486.0,574.0" stroke="#b45309" fill="#fde68a" stroke-width="2.5" stroke-linejoin="round" />
+<polygon points="474.0,574.0 526.0,574.0 526.0,518.0 474.0,518.0" stroke="#b45309" fill="url(#cradle)" stroke-width="2" stroke-linejoin="round" />
+<polygon points="466.0,566.0 434.0,566.0 434.0,561.0 466.0,561.0" stroke="#111827" fill="#374151" stroke-width="1.5" stroke-linejoin="round" />
+<polygon points="534.0,566.0 566.0,566.0 566.0,561.0 534.0,561.0" stroke="#111827" fill="#374151" stroke-width="1.5" stroke-linejoin="round" />
+<polygon points="476.0,440.0 524.0,440.0 550.0,468.0 548.0,508.0 526.0,520.0 474.0,520.0 452.0,508.0 450.0,468.0" stroke="#ea580c" fill="#ffedd5" stroke-width="1.5" stroke-linejoin="round" />
+<polygon points="520.0,512.0 540.0,512.0 540.0,480.0 520.0,480.0" stroke="#7c3aed" fill="#ede9fe" stroke-width="2" stroke-linejoin="round" />
+<polygon points="483.0,480.0 473.0,480.0 473.0,444.0 483.0,444.0" stroke="#111827" fill="#9ca3af" stroke-width="1.5" stroke-linejoin="round" />
+<polygon points="517.0,480.0 527.0,480.0 527.0,444.0 517.0,444.0" stroke="#111827" fill="#9ca3af" stroke-width="1.5" stroke-linejoin="round" />
+<polygon points="468.0,446.0 532.0,446.0 532.0,440.0 468.0,440.0" stroke="#111827" fill="#374151" stroke-width="1.5" stroke-linejoin="round" />
+<polygon points="468.0,430.0 532.0,430.0 532.0,425.0 468.0,425.0" stroke="#111827" fill="#374151" stroke-width="1.5" stroke-linejoin="round" />
+<polyline points="420.0,414.0 450.0,418.0 500.0,420.0 550.0,418.0 580.0,414.0" stroke="#111827" fill="none" stroke-width="4" stroke-linejoin="round" stroke-linecap="round" />
+<circle cx="420.0" cy="414.0" r="4.4" stroke="#111827" fill="#fff" stroke-width="2" />
+<circle cx="580.0" cy="414.0" r="4.4" stroke="#111827" fill="#fff" stroke-width="2" />
+<polyline points="450.0,560.0 452.0,492.0 470.0,424.0" stroke="#64748b" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="7 5" opacity="0.85"/>
+<polyline points="460.0,336.0 412.0,360.0 420.0,410.0" stroke="#64748b" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="7 5" opacity="0.85"/>
+<polyline points="550.0,560.0 548.0,492.0 530.0,424.0" stroke="#64748b" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="7 5" opacity="0.85"/>
+<polyline points="540.0,336.0 588.0,360.0 580.0,410.0" stroke="#64748b" fill="none" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="7 5" opacity="0.85"/>
+<polygon points="470.0,424.0 530.0,424.0 542.0,334.0 458.0,334.0" stroke="#64748b" fill="none" stroke-width="3" stroke-linejoin="round" stroke-dasharray="7 5" opacity="0.85"/>
+<circle cx="500.0" cy="284.0" r="26.0" stroke="#64748b" fill="none" stroke-width="3" stroke-dasharray="7 5" opacity="0.85"/>
+<polygon points="480.0,292.0 520.0,292.0 520.0,276.0 480.0,276.0" stroke="#64748b" fill="#cbd5e1" stroke-width="2" stroke-linejoin="round" />
+<circle cx="500" cy="640" r="9" fill="#fff" stroke="#111827" stroke-width="2.5"/><path d="M491,640 A9,9 0 0,1 500,631 L500,640 z M509,640 A9,9 0 0,1 500,649 L500,640 z" fill="#111827"/>
+<path d="M500,390.0 A250.0,250.0 0 0,1 716.5,515.0" fill="none" stroke="#4b5563" stroke-width="1.5" marker-end="url(#arr)"/>
+<text x="610.0" y="380.0" font-size="13" text-anchor="start" fill="#4b5563" font-weight="600">roll ±60°</text>
+<line x1="500" y1="224.0" x2="834.3" y2="224.0" stroke="#4b5563" stroke-width="1" marker-start="url(#arr)" marker-end="url(#arr)"/>
+<text x="667.1" y="216.0" font-size="12" text-anchor="middle" fill="#4b5563" font-weight="normal">head moves 1.67 m sideways</text>
+<text x="30.0" y="880.0" font-size="13" text-anchor="start" fill="#111827" font-weight="normal">• Roll pivots on the virtual ground, like a real bike leaning on its tyres — so lean feels right with no software fakery.</text>
+<text x="30.0" y="906.0" font-size="13" text-anchor="start" fill="#111827" font-weight="normal">• All roll and pitch drives hang BELOW the pivot. Nothing pokes up where the boots and the bike's belly swing.</text>
+<text x="30.0" y="932.0" font-size="13" text-anchor="start" fill="#111827" font-weight="normal">• Inside peg at 60°: the real-world peg-drag angle. Whips past 60° are carried by VR visuals + onset cue.</text>
+<text x="30.0" y="958.0" font-size="13" text-anchor="start" fill="#111827" font-weight="normal">• Pivot 0.6 m off the floor gives room for the hanging drives and keeps a dangled foot clear of the floor.</text>
+</svg>
