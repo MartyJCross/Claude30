@@ -11,25 +11,24 @@ Prices are **rough planning ranges in USD**, not quotes. They swing a lot by cou
 | Yaw table, roll uprights, roll ring, pitch hub | 1 set | Fabricated steel, machined bearing seats | |
 | Rod sleeve + engine-replacement cradle | 1 set | 160×160×8 SHS sleeve; cradle bolted to every engine mount | |
 | *Steel, fabrication and machining for the above* | | Outsourced machining dominates | **$4,000–10,000** |
-| Slewing ring | 1 | 4-point contact ball, ~800 mm bore class, external gear | $800–2,000 |
-| Sector gears | 2 | Pitch radius 0.30 m, module ~8, 60 mm face, case-hardened (roll ±90°, pitch ≈ −85…+70°) | $1,500–4,000 |
+| Slewing ring | 1 | 4-point contact ball, ~800 mm bore class, external gear, rated for ≥8 kN·m working moment with fatigue margin | $1,000–2,500 |
+| Sector gears | 2 | Pitch radius 0.30 m, module ~10, 80 mm face, case-hardened (roll ±90°, pitch ≈ −85…+70°) | $2,000–5,000 |
 | Pinions | 6 | 4 for the sectors, 2 for the yaw ring | incl. above |
 | Precision planetary gearboxes | 6 | 20:1 ×4 (roll/pitch), 10:1 ×2 (yaw), low backlash | $2,400–7,200 |
 | Roll and pitch bearings + housings | 4 | Compact; roll housings ≤80 mm above the pivot | $500–1,500 |
-| Polyurethane end-stop buffers | 4 | Roll ±63° and pitch, 10° crush, ~5 kN·m | $100–300 |
+| Polyurethane end-stop buffers | 4 | Roll ±63° and pitch, 10° crush, ~7 kN·m | $150–400 |
 | Anchors | 8 | M16 chemical anchors | $100 |
 
 ## Motion drives
 
 | Item | Qty | Spec | Ballpark |
 |---|---|---|---|
-| AC servo + drive, 5 kW / 3000 rpm, with holding brake | 4 | Roll ×2, pitch ×2; EtherCAT; STO input | |
-| AC servo + drive, 2 kW, with holding brake | 2 | Yaw | |
-| AC servo + drive, 3 kW, with holding brake | 1 | Heave | |
-| *Servos and drives total* | 7 | | **$6,000–18,000** |
-| Ball-screw electric cylinder | 1 | 10 kN, 20 mm lead, 200 mm stroke | $1,000–2,500 |
+| AC servo + drive, 5 kW / 3000 rpm, with holding brake | 5 | Roll ×2, pitch ×2, heave; EtherCAT; STO input. One spare fits every axis but yaw | |
+| AC servo + drive, 3 kW, with holding brake | 2 | Yaw | |
+| *Servos and drives total* | 7 | | **$6,500–19,000** |
+| Ball-screw electric cylinder | 1 | 20 kN rated (8 kN peak working), 20 mm lead, 200 mm stroke | $1,500–3,500 |
 | Profile rails + carriages | 2 + 4 | Size 35 | $300–700 |
-| Air spring + regulator | 1 | Adjustable, ~2 kN at working pressure | $150–400 |
+| Air spring + regulator | 1 | Adjustable, ~3 kN at working pressure | $150–400 |
 | Absolute ring encoder / homing sensors | 1 set | Yaw homing, axis homing | $200–600 |
 
 ## Bike: FFB, controls and sensing
@@ -38,8 +37,8 @@ Prices are **rough planning ranges in USD**, not quotes. They swing a lot by cou
 |---|---|---|---|
 | Direct-drive steering motor | 1 | 25–32 N·m, USB FFB, safety input | $900–2,500 |
 | Toothed belt drive | 1 | 2:1, HTD/GT profile, tensioner, stem pulley clamp | $100–250 |
-| Footpeg load cells | 2 | 300 kg shear beam | |
-| Seat load cells | 2 | 100 kg | |
+| Footpeg load cells | 2 | 500 kg shear beam | |
+| Seat load cells | 2 | 200 kg | |
 | Bar-riser load cells | 2–4 | Compression/2-axis | |
 | Brake pressure transducers | 2 | 0–100 bar, with banjo T-fittings | |
 | Throttle/clutch sensors | 2 | Contactless magnetic | |
@@ -78,7 +77,8 @@ Prices are **rough planning ranges in USD**, not quotes. They swing a lot by cou
 
 | | Low | High |
 |---|---|---|
-| **Ballpark build cost** | **~$27,000** | **~$76,000** |
+| **Ballpark build cost (engine-out, rated 300 kg)** | **~$29,000** | **~$80,000** |
+| Engine-in variant: 4× 7.5 kW instead of 5 kW on roll/pitch, sector gears up a size, taller rod | +$2,500 | +$8,000 |
 
 Where the money goes: servos and drives, machining, and safety. Ways to come in at the low end:
 

@@ -17,15 +17,15 @@ It's a real MX frame on **one steel rod**. The bottom of the rod sits in a power
 | **Steering FFB** | Up to ~64 N·m at the bars through the real triple clamps, ±40° lock |
 | **Controls** | Real throttle, clutch, front/rear brake (real calipers as pressure sensors), shifter |
 | **Body sensing** | Load cells in pegs, seat and bar mounts, plus VR head pose → rider centre of mass to the game |
-| **Rider** | Up to 110 kg in gear, standing |
+| **Payload** | **300 kg on the rod**: rider up to 130 kg in gear + bike up to 170 kg, so a complete 450 fits ([engine in or out?](docs/DESIGN.md#engine-in-or-out)) |
 | **Space** | 5 × 5 m fenced cell, 3.0 m ceiling, 400 V 3-phase 32 A |
-| **Budget** | Roughly $27k–76k USD depending on new vs used parts ([BOM](docs/BOM.md)) |
+| **Budget** | Roughly $29k–80k USD depending on new vs used parts ([BOM](docs/BOM.md)) |
 
 ## Documents
 
 - **[docs/DESIGN.md](docs/DESIGN.md)**: the full design: requirements, concept, every subsystem, control architecture, mod interface, safety, build order.
 - **[docs/BOM.md](docs/BOM.md)**: parts list and ballpark budget.
-- **[docs/SIZING.md](docs/SIZING.md)**: torque, inertia, envelope and safety numbers (generated).
+- **[docs/SIZING.md](docs/SIZING.md)**: torque, inertia, envelope and safety numbers for the rated case, the engine-in layout and the engine-out build (generated).
 - **[docs/img/](docs/img)**: side and front elevations.
 
 ## Tools
@@ -33,9 +33,9 @@ It's a real MX frame on **one steel rod**. The bottom of the rod sits in a power
 The numbers and drawings come from code, so they stay consistent when you change something:
 
 ```sh
-python3 tools/rig_sizing.py               # sizing for the 110 kg design rider
-python3 tools/rig_sizing.py --rider 80    # re-check for a different rider
-python3 tools/rig_sizing.py > docs/SIZING.md
+python3 tools/rig_sizing.py                              # rated case: 300 kg on the rod
+python3 tools/rig_sizing.py --rider 90 --bike 77         # engine-out bike, lighter rider
+python3 tools/rig_sizing.py --pivot-drop 0.2 --gimbal-servo 7.5   # engine-in layout
 python3 tools/make_diagrams.py            # regenerate docs/img/*.svg
 ```
 

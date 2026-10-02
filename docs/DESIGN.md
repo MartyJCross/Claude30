@@ -2,7 +2,7 @@
 
 A full-motion motocross simulator you can whip, scrub, wheelie and back into a turn sideways. It's one steel rod under a real MX frame, standing on a powered "ball joint" that spins 360° flat and tilts any direction. On top of that: a force-feedback steering head, the bike's real controls, sensors that read your body, and VR.
 
-**Status:** concept design v0.1. Sized and laid out, not yet CAD'd against a specific donor frame.
+**Status:** concept design v0.2, rated for **300 kg on the rod**. Sized and laid out, not yet CAD'd against a specific donor frame.
 Numbers marked † come from [`tools/rig_sizing.py`](../tools/rig_sizing.py) (full output in [SIZING.md](SIZING.md)).
 
 ![Side elevation](img/side-view.svg)
@@ -33,7 +33,7 @@ A superbike sim can get away with a rig that just leans. Motocross can't. These 
 | **Heave** | ±100 mm along the rod | 0.6 m/s | 1.5 g onset | Landings, whoops, suspension compression |
 | **Steering** | ±40° (the bike's own stops) | n/a | 50–64 N·m at the bars | Ruts, self-steer, headshake, light front in the air |
 
-Design rider: **110 kg in gear, standing in the attack position** (the worst case: highest centre of mass).
+**Rated payload: 300 kg on the rod.** That covers everything riding on top of it: the rider (up to **130 kg** in gear) plus the bike and everything bolted to it (up to **170 kg**). That's enough for a complete 450 with the engine in (~110 kg wet) plus the rig's own hardware on the bike. Sizing assumes the rider is standing in the attack position, the worst case because it puts the centre of mass highest. The recommended engine-out build (§3.6) comes to about 207 kg with a 130 kg rider, which leaves ~90 kg of headroom.
 
 **Why ±60° roll and not 90°.** 60° is peg-drag on a real bike, the furthest you can lean on the ground. Whips go further, but only in the air. There the rig snaps to 60° hard and fast, and the VR picture shows the rest. Your inner ear reads the *onset* of a rotation far more than its final angle, so a violent 60° feels like a big whip. Going past 60° with a rider who is standing and unstrapped would throw people off.
 
@@ -47,7 +47,7 @@ What you described:
 
 That *is* the design. Here's what each part of it becomes in hardware:
 
-- **"Gyroscopic motor" / "big ball" → a powered 3-axis gimbal.** It's three rotary axes stacked like the rings of a gyroscope mount: **yaw** (spin flat) on a big slewing ring at the bottom, then **roll**, then **pitch**. The roll and pitch axes cross at one point, the **pivot**, so the rod moves exactly as if it sat on a ball joint, except every direction is driven. You can't buy a motorised ball that carries 400 kg at 4 kN·m, but you can build a gimbal that behaves the same way.
+- **"Gyroscopic motor" / "big ball" → a powered 3-axis gimbal.** It's three rotary axes stacked like the rings of a gyroscope mount: **yaw** (spin flat) on a big slewing ring at the bottom, then **roll**, then **pitch**. The roll and pitch axes cross at one point, the **pivot**, so the rod moves exactly as if it sat on a ball joint, except every direction is driven. You can't buy a motorised ball that swings 550 kg with over 5 kN·m, but you can build a gimbal that behaves the same way.
 - **"Two ball joints" → one powered joint at the bottom, one rigid joint at the top.** The rod's top end bolts *solid* to the frame. Any slop there and the bike would wobble on its own, and the feel would be gone.
 - **The rod also slides (heave).** The rod is a telescope. The bottom half is fixed to the gimbal; the top half carries the bike and slides 200 mm up and down it on linear rails, driven by a ball screw. That's your suspension: a landing punches you down along the bike's own axis, which is exactly the direction real forks and shocks compress.
 - **VR, not a screen.** A screen can't follow you through a 360° spin or a 60° whip. Use a headset, and a wireless one, because nothing can be wired across unlimited yaw.
@@ -66,7 +66,7 @@ So the rod is **≈330 mm** from pivot to frame (typical MX ground clearance), a
 
 At full lean the inside boot dips just below pivot height, about 0.45 m out to the side. At a full wheelie your heels come down to about 0.13 m above the pivot, just behind it. Nose-down, the bike's belly comes within about 0.14 m in front. Anything that sticks up near the pivot gets kicked.
 
-**Rule: above the pivot plane, nothing but the rod within 0.75 m.** Roll and pitch are driven by big **sector gears** (pie-slice gears) hanging *under* the pivot, with their motors lower still. Bonus: about 100 kg of hanging drives and gears acts as a counterweight, which cuts the overturning torque the motors fight by about 15%.
+**Rule: above the pivot plane, nothing but the rod within 0.75 m.** Roll and pitch are driven by big **sector gears** (pie-slice gears) hanging *under* the pivot, with their motors lower still. Bonus: about 115 kg of hanging drives and gears acts as a counterweight, which cuts the overturning torque the motors fight by about 11%.
 
 ### Options considered and dropped
 
@@ -88,14 +88,14 @@ Coordinates: origin at the pivot, **x** forward, **y** left, **z** up.
 ### 3.1 Base
 
 - Steel weldment, X-shaped, 2.4 m tip to tip. Arms in 200×100 RHS; 30 mm centre plate machined flat for the slewing ring.
-- Bolted to a reinforced slab at least 150 mm thick with 8× M16 chemical anchors. Design overturning moment **5.8 kN·m**†. If you can't anchor it, ballast it and widen it, but anchor it if at all possible.
+- Bolted to a reinforced slab at least 150 mm thick with 8× M16 chemical anchors. Design overturning moment **8.0 kN·m**†. If you can't anchor it, ballast it and widen it, but anchor it if at all possible.
 - Shim and grout under the centre plate until the slewing-ring seat is as flat as the ring maker specifies (typically ≤0.1 mm).
 
 ### 3.2 Yaw: unlimited spin
 
 - **Slewing ring:** 4-point-contact ball type, ~800 mm bore class, external gear teeth, outer ring bolted to the base. The large bore lets the hanging roll and pitch drives swing through its open centre.
 - **Yaw table:** an open ring frame bolted to the rotating ring. It carries the roll uprights, the roll drives and the electronics bay.
-- **Drives:** 2× (2 kW servo + 10:1 planetary + pinion) at rear-left and rear-right, 80:1 overall. The two are **preloaded against each other** electronically (one drives, the other holds back slightly), which gives zero backlash: no clunk when yaw reverses in an oppo flick. Peak **1.2 kN·m**†.
+- **Drives:** 2× (3 kW servo + 10:1 planetary + pinion) at rear-left and rear-right, 80:1 overall. The two are **preloaded against each other** electronically (one drives, the other holds back slightly), which gives zero backlash: no clunk when yaw reverses in an oppo flick. Peak **1.6 kN·m**†.
 - **Slip ring** in the centre under the table: 3-phase + N + 2× PE at 32 A, two channels for the hard-wired safety loop, Gigabit Ethernet (or a fibre rotary joint), and spares. Everything else lives on the yaw table, so nothing else has to cross the rotation.
 - Absolute encoder on the ring for homing.
 
@@ -103,22 +103,22 @@ Coordinates: origin at the pivot, **x** forward, **y** left, **z** up.
 
 - The roll axis runs fore–aft through the pivot, carried by two short uprights at x = ±0.60 m. Use compact bearings whose housings stay **≤80 mm above the pivot**.
 - **Roll ring:** a rectangular open frame (side members at y = ±0.25 m), open in the middle so the rod and the pitch sector can swing through it.
-- **Drive:** a steel sector gear (pitch radius 0.30 m, spans ±90°, case-hardened, module ~8, 60 mm face) at x = +0.40 m, hanging below the axis. Two pinions sit at ±30° from the bottom, each driven by a 5 kW servo + 20:1 planetary; 100:1 overall, preloaded pair. Peak **3.9 kN·m**†; tooth force **16 kN**† (confirm with a proper gear-strength calc).
+- **Drive:** a steel sector gear (pitch radius 0.30 m, spans ±90°, case-hardened, module ~10, 80 mm face) at x = +0.40 m, hanging below the axis. Two pinions sit at ±30° from the bottom, each driven by a 5 kW servo + 20:1 planetary; 100:1 overall, preloaded pair. Peak **5.3 kN·m**†; tooth force **22 kN**† (confirm with a proper gear-strength calc).
 - **Why roll is the outer axis:** it's the big-range axis, and putting its bearings fore and aft (not at the sides) keeps them clear of your boots at full lean.
 - **Why its drive is at the front:** at a full wheelie your heels come down *behind* the pivot. Nose-down is limited to −30°, so the front has more room.
 
 ### 3.4 Pitch: inner axis
 
 - The pitch hub sits at the pivot, with trunnions out to the roll ring's side members. The rod bolts on top.
-- **Drive:** a sector gear hanging under the hub in the fore–aft plane, with two 5 kW pinion drives mounted on the roll ring (they roll with it). 100:1. Peak **3.4 kN·m**†.
+- **Drive:** a sector gear hanging under the hub in the fore–aft plane, with two 5 kW pinion drives mounted on the roll ring (they roll with it). 100:1. Peak **4.7 kN·m**†.
 
 ### 3.5 The rod and heave cartridge
 
-The rod is a telescope, and the engine bay houses it. **The rod takes the engine's place.**
+The rod is a telescope, and in the recommended build the engine bay houses it: **the rod takes the engine's place.** (To keep the engine in, see §3.6.)
 
-- **Sleeve (fixed to the pitch hub):** ~160×160×8 square tube, about 520 mm tall, rising from the hub through the underside of the frame into the engine bay. Two size-35 profile rails run on its front and rear faces. Bending stress at peak torque is about 60 MPa†, a safety factor of ~6 on S355 steel.
+- **Sleeve (fixed to the pitch hub):** ~160×160×8 square tube, about 520 mm tall, rising from the hub through the underside of the frame into the engine bay. Two size-35 profile rails run on its front and rear faces. Bending stress at peak torque is about 80 MPa†, a safety factor of ~4.4 on S355 steel.
 - **Carriage (moves):** the engine-replacement cradle (§3.6) carries four rail carriages, and the bike rides on it.
-- **Actuator:** 10 kN ball-screw electric cylinder, 20 mm lead, 3 kW servo, mounted inside the sleeve. Peak **5.3 kN**†, 0.6 m/s, 200 mm stroke.
+- **Actuator:** 20 kN-rated ball-screw electric cylinder, 20 mm lead, mounted inside the sleeve. It uses a 5 kW servo, the same motor as roll and pitch, so one spare covers all five. Peak **8.0 kN**†, 0.6 m/s, 200 mm stroke.
 - **Static support:** an adjustable air spring in parallel, with pressure set to the rider's weight, so the servo handles only the dynamics and isn't holding you up all session. It still works without one; the motor just runs warm.
 - **Bump stops:** polyurethane at both ends of travel. That's your bottoming-out.
 
@@ -126,7 +126,7 @@ The rod is a telescope, and the engine bay houses it. **The rod takes the engine
 
 You're in VR, so you never see the real bike. Only touch matters. Keep everything you touch and cut everything else: less moving mass means harder-hitting motion.
 
-| Keep | Remove |
+| Keep | Remove (recommended build) |
 |---|---|
 | Frame, subframe, seat, tank shell, radiator shrouds (knee grip), side panels | Engine, wheels, swingarm, shock, exhaust, radiators, airbox internals, fuel |
 | Footpegs, shift lever, rear brake pedal + master cylinder | Fork legs below the lower clamp (cut to ~150 mm stubs), front fender |
@@ -135,7 +135,24 @@ You're in VR, so you never see the real bike. Only touch matters. Keep everythin
 
 **Donor:** any modern 250/450 MX frame. Non-runners and seized-engine bikes are cheap. On **steel frames** (KTM, Husqvarna, GasGas) you can weld tabs. On **aluminium frames** (Honda, Yamaha, Kawasaki, Suzuki) bolt only, never weld.
 
-**Engine-replacement cradle.** A fabricated steel box (~14 kg) that bolts to *every* engine mount the frame has: front/downtube, lower, upper/head-stay, and through the swingarm pivot bolt. On aluminium frames the engine is a stressed member, so the cradle takes over that job. Those mounts are built to carry a rider landing big jumps; the rig's loads are a fraction of that. Loading through the engine mounts is safe. Clamping to frame tubes is not.
+#### Engine in or out?
+
+The rig is rated to carry a complete 450 with its engine. The catch is that the engine and the heave cartridge both want the engine bay. That leaves two ways to build it:
+
+| | **Engine out (recommended)** | **Engine in (complete 450)** |
+|---|---|---|
+| Rod mounts to | A cradle bolted to the empty engine mounts | A belly cradle under the engine, picking up the lower engine mount and the swingarm-pivot bolt |
+| Heave cartridge | Inside the engine bay | In a longer rod under the frame, so the pivot drops **200 mm below** the virtual ground |
+| On the rod, with a 130 kg rider | ~207 kg (~90 kg spare) | ~300 kg (at the rating) |
+| Roll + pitch motors | 4× 5 kW | 4× **7.5 kW**, sector gears up a size (29 kN tooth force†) |
+| Peak roll torque | 4.5 kN·m† | 7.1 kN·m† |
+| Base overturning design moment | 6.7 kN·m† | 10.6 kN·m† |
+| Space | 4.6 m cell, 3.0 m ceiling, seat 1.55 m off the floor | 5.0 m cell, **3.2 m** ceiling, seat **1.75 m** |
+| Lean | Pivots exactly on the tyre line | Pivots 200 mm under it: close, but slightly less true |
+
+What the engine *doesn't* give you is feel. The rig is position-controlled, so the motors decide every move the bike makes. Another 30 kg of engine changes nothing you can sense; it just uses up motor torque, and in VR you can't see it anyway. Keep it only if you want to bolt your actual bike on and off the rig. Either way, the wheels come off. Both layouts are in [SIZING.md](SIZING.md).
+
+**Engine-replacement cradle (engine-out build).** A fabricated steel box (~14 kg) that bolts to *every* engine mount the frame has: front/downtube, lower, upper/head-stay, and through the swingarm pivot bolt. On aluminium frames the engine is a stressed member, so the cradle takes over that job. Those mounts are built to carry a rider landing big jumps; the rig's loads are a fraction of that. Loading through the engine mounts is safe. Clamping to frame tubes is not.
 
 ### 3.7 Force-feedback handlebar
 
@@ -168,7 +185,7 @@ This is what makes it riding instead of a ride. The rig moves the bike; the sens
 
 | Sensor | Where | Tells the game |
 |---|---|---|
-| Load cell ×2 (300 kg rated) | Under each footpeg | Left/right weighting, standing weight, peg-weighting in turns |
+| Load cell ×2 (500 kg rated) | Under each footpeg | Left/right weighting, standing weight, peg-weighting in turns |
 | Load cell ×2 | Seat front and rear mounts | Sitting vs standing; how far back you are |
 | Load cells ×2–4 | Under the bar risers | Pulling or pushing on the bars; weight on the front |
 | VR headset pose | Relative to the bike, after motion compensation | Where your head and upper body are: back, over the front, off the side |
@@ -192,19 +209,19 @@ If you don't do step 3, it loops out. The sim decides.
 
 ---
 
-## 4. Sizing summary †
+## 4. Sizing summary † (rated 300 kg)
 
 | | Roll | Pitch | Yaw | Heave | Steering |
 |---|---|---|---|---|---|
-| Peak demand | 3.9 kN·m | 3.4 kN·m | 1.2 kN·m | 5.3 kN | ≤64 N·m |
-| Drive | Sector + 2× 5 kW | Sector + 2× 5 kW | Slew ring + 2× 2 kW | Ball screw + 3 kW + air spring | 32 N·m DD + 2:1 belt |
+| Peak demand | 5.3 kN·m | 4.7 kN·m | 1.6 kN·m | 8.0 kN | ≤64 N·m |
+| Drive | Sector + 2× 5 kW | Sector + 2× 5 kW | Slew ring + 2× 3 kW | Ball screw + 5 kW + air spring | 32 N·m DD + 2:1 belt |
 | Overall ratio | 100:1 | 100:1 | 80:1 | 20 mm lead | 2:1 |
 | Motor speed at max rate | 2500 rpm | 2000 rpm | 2400 rpm | 1800 rpm | — |
-| Peak motor torque needed (incl. 1.25× margin) | 28 N·m of 48 | 25 N·m of 48 | 13 N·m of 19 | 23 N·m of 29 | — |
+| Peak motor torque needed (incl. 1.25× margin) | 38 N·m of 48 | 34 N·m of 48 | 17 N·m of 29 | 36 N·m of 48 | — |
 
-- **Moving mass:** ~400 kg rolls (rider + bike + rod + inner gimbal). The whole machine is about 1 tonne.
+- **Moving mass:** at the rated payload ~545 kg rolls (rider + bike + rod + inner gimbal). The whole machine is about 1.1 tonnes.
 - **Space:** keep-out radius **2.0 m**, so plan a fenced cell of about 5 × 5 m. Minimum ceiling **3.0 m**. The seat is about 1.55 m off the floor, so you'll need a mounting step.
-- **Power:** 400 V 3-phase, 32 A supply recommended. About 28 kW of servo is installed, but the average draw is a few kW. Put all drives on a common DC bus with a braking resistor, because letting a lean down regenerates. 230 V single-phase at 32 A can work with a DC-bus capacitor bank and derated peaks, but it isn't recommended.
+- **Power:** 400 V 3-phase, 32 A supply recommended. About 32 kW of servo is installed, but the average draw is a few kW. Put all drives on a common DC bus with a braking resistor, because letting a lean down regenerates. 230 V single-phase at 32 A can work with a DC-bus capacitor bank and derated peaks, but it isn't recommended.
 
 ---
 
@@ -302,7 +319,7 @@ This machine can move a person 1.7 m sideways in under half a second. Treat it l
 | **Thrown off** | Acceleration and jerk caps a rider can hold (start at 30% gain and work up). **Rider-departure detection:** if seat + peg + bar load drops below 30% of body weight for 0.1 s while armed → controlled stop to level. **Lanyard kill-cord** clipped to your belt. |
 | **Bystander hit** (2 m swing radius) | Fenced 5 × 5 m cell with an interlocked gate and a laser scanner or light curtain on the gate side. The rig won't arm unless the gate is shut and the mounting stair is parked in its dock. |
 | **Fingers or feet in gears** | All sector gears, pinions and the slew-ring teeth under bolted guards, plus a flexible skirt around the gimbal. |
-| **Runaway axis** (software or drive fault) | Soft limits in the controller; hard-wired limit switches at ±62° → STO; polyurethane buffers from ±63° with 10° of crush, sized for **920 J / 5.3 kN·m**† (worst case: roll at full speed). Pitch gets the same treatment. |
+| **Runaway axis** (software or drive fault) | Soft limits in the controller; hard-wired limit switches at ±62° → STO; polyurethane buffers from ±63° with 10° of crush, sized for **1,210 J / 6.9 kN·m**† (worst case: roll at full speed). Pitch gets the same treatment. |
 | **Power cut at full lean** | Every motor has a spring-applied holding brake, so the rig freezes in place. A manual brake release plus a hand-wheel lowers it gently, and the hanging drives take some of the load. A UPS keeps the controller and safety PLC alive to log and display state. |
 | **Crash in the game** | The rig doesn't follow the crash (§7). |
 | **400 V on a spinning machine** | Double PE through the slip ring, RCD protection, IP54+ enclosures, and drives in a locked bay on the yaw table. |
@@ -323,7 +340,7 @@ This machine can move a person 1.7 m sideways in under half a second. Treat it l
 2. **Static bike first:** strip the bike, fit the cradle on a fixed stand, add the controls, DAQ, FFB and VR. Get the mod reading your body and driving the bars. You can ride it static, and this proves the inputs before the big motion spend.
 3. **Base + yaw:** anchor it, then commission yaw and the slip ring alone.
 4. **Gimbal, empty:** limits, switches, E-stops, STO, brakes and power-cut behaviour, with no payload.
-5. **Gimbal + dummy rider:** bolt on about 200 kg (steel plates on a post at the rider's CoM height, 1.35 m). Run the full envelope, step responses, and a power cut at full lean. Proof-load the rod and cradle at 1.5×.
+5. **Gimbal + dummy rider:** bolt on the full 300 kg rating: 130 kg of steel plates on a post at the rider's CoM height (1.35 m) plus 170 kg low on the frame (~0.6 m). Run the full envelope, step responses, and a power cut at full lean. Proof-load the rod and cradle at 1.5×.
 6. **Heave cartridge, shakers, fan.**
 7. **First human:** 25% gain with an operator on the E-stop, raising gains over sessions.
 
@@ -333,6 +350,7 @@ Parts list and budget: [BOM.md](BOM.md).
 
 ## 10. Open items (confirm in CAD with the real frame)
 
+- **Engine in or out** (§3.6). This decides where the heave cartridge goes and how big the roll/pitch motors are.
 - Room in the engine bay for the heave cartridge and cradle on your specific frame; where the lower frame rails sit relative to the sleeve.
 - The no-go zone (§2) checked against real plastics, boots and a dangled leg.
 - FFB motor and belt routing on that frame.
